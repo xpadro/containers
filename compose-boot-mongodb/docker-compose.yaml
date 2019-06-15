@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+
+  app:
+    env_file:
+      - environment
+
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+
+    container_name: boot-mongo
+
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      - mongo
+
+    networks:
+      - mongo_network
+
+  mongo:
+    image: mongo:4.1
+
+    container_name: mongodb
+
+    ports:
+      - 27017:27017
+
+    volumes:
+      - mongo_data:/data/db
+
+    networks:
+      - mongo_network
+
+volumes:
+  mongo_data:
+
+networks:
+  mongo_network:
