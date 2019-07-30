@@ -10,7 +10,7 @@ $ ./mvnw install dockerfile:build
 
 ## Run the container
 ```
-$ docker run -p 8080:8080 xpadro/hellow-world-java
+$ docker run -p 8080:8080 xpadro/hello-world-java
 ```
 
 ## Use the web application
