@@ -1,19 +1,9 @@
-# web-ci
+# multi-stage
 
-In order to run Jenkins in Docker in your local environment:
+Difference in image size depending on whether we build a single Dockerfile or a multi-stage Dockerfile:
 
 ```
-docker run \
-  -u root \ 
-  --rm \ 
-  -d \ 
-  -p 8080:8080 \ 
-  -p 50000:50000 \ 
-  -v jenkins-data:/var/jenkins_home \ 
-  -v /var/run/docker.sock:/var/run/docker.sock \ 
-  jenkinsci/blueocean
+REPOSITORY                   TAG             IMAGE ID            SIZE
+xpadro/build-multi           latest          e9b4c2c50105        122MB
+xpadro/build-single          latest          7669b4ede63e        217MB
 ```
-
-[Jenkins installation page]
-
-[Jenkins installation page]: https://jenkins.io/doc/book/installing/
